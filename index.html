@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>कक्षा 5 - कोण (Angle) सीखें</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: linear-gradient(to right, #e0f7fa, #fff3e0); margin: 0; color: #333; line-height: 1.6; }
+    header { background: #ff9800; color: white; text-align: center; padding: 20px; font-size: 28px; font-weight: bold; }
+    .container { max-width: 1000px; margin: 20px auto; background: white; padding: 25px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    h2 { color: #e65100; border-bottom: 2px dashed #ffcc80; padding-bottom: 5px; margin-top: 35px; }
+    h3 { color: #1565c0; margin-bottom: 5px; }
+    .card { background: #f9fbe7; border-left: 8px solid #8bc34a; padding: 15px; margin: 15px 0; border-radius: 10px; }
+    .note { background: #e3f2fd; border-left: 8px solid #42a5f5; padding: 12px; border-radius: 10px; margin: 12px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 15px 0; }
+    .box { background: #fff8e1; border: 2px solid #ffd54f; padding: 12px; border-radius: 10px; text-align: center; }
+    .box b { font-size: 18px; }
+    .pic { background: #f3faff; border-radius: 10px; padding: 6px; }
+    .pic svg { width: 100%; max-width: 260px; height: auto; }
+    .type-card { background: #f3e5f5; border: 2px solid #ce93d8; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+    th { background: #ffe0b2; }
+    button { background: #4caf50; color: white; border: none; padding: 10px 18px; margin: 6px 4px; border-radius: 8px; cursor: pointer; font-size: 16px; }
+    button:hover { background: #388e3c; }
+    button.secondary { background: #1e88e5; }
+    button.secondary:hover { background: #1565c0; }
+    .quiz, .exercise, .practice { padding: 20px; border-radius: 12px; margin-top: 15px; }
+    .quiz { background: #ede7f6; }
+    .exercise { background: #e8f5e9; }
+    .practice { background: #fce4ec; text-align: center; }
+    .question { margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px dotted #aaa; }
+    .result { font-weight: bold; margin-top: 10px; font-size: 18px; }
+    .score { font-size: 20px; color: #6a1b9a; font-weight: bold; }
+    .answer-box { display: none; background: #fffde7; padding: 10px; border-radius: 8px; margin-top: 10px; }
+    .fun { font-size: 18px; color: #1565c0; font-weight: bold; }
+    .daily { font-size: 15px; }
+    footer { text-align: center; padding: 15px; color: #666; font-size: 14px; }
+
+    /* इंटरैक्टिव घड़ी */
+    .clock-wrap { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; background: #fff3e0; border-radius: 14px; padding: 15px; }
+    #clockBox { width: 300px; max-width: 100%; touch-action: none; cursor: grab; user-select: none; }
+    #clockBox svg { width: 100%; height: auto; display: block; }
+    .clock-info { flex: 1; min-width: 250px; }
+    .clock-info .big { font-size: 22px; font-weight: bold; color: #6a1b9a; }
+    .calc { background: #fffde7; border: 2px dashed #ffb300; border-radius: 10px; padding: 10px; margin: 10px 0; text-align: left; }
+    .slider-row { text-align: left; margin: 8px 0; }
+    .slider-row input { width: 65%; vertical-align: middle; }
+    .challenge { background: #e8eaf6; border-radius: 10px; padding: 12px; margin-top: 12px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<header>कोण (Angle) सीखें - कक्षा 5</header>
+
+<div class="container">
+
+  <!-- 1. परिचय -->
+  <h2>1. कोण क्या होता है?</h2>
+  <div class="card">
+    जब दो रेखाएँ एक बिंदु पर मिलती हैं, तो उनके बीच बनने वाली <b>खुलावट</b> को <b>कोण (Angle)</b> कहते हैं।
+  </div>
+
+  <h3>कोण के मुख्य भाग</h3>
+  <div class="grid">
+    <div class="box"><b>भुजाएँ (Arms)</b><br>कोण बनाने वाली दो रेखाएँ</div>
+    <div class="box"><b>शीर्ष (Vertex)</b><br>जहाँ दोनों भुजाएँ मिलती हैं</div>
+    <div class="box"><b>डिग्री (°)</b><br>कोण को नापने की इकाई</div>
+  </div>
+
+  <div class="note">
+    <b>याद रखो:</b> कोण की लंबाई नहीं, उसकी खुलावट मायने रखती है। बड़ी भुजाओं वाला कोण भी छोटा हो सकता है!
+  </div>
+
+  <!-- 2. चित्रों में कोण के प्रकार -->
+  <h2>2. चित्रों से समझो: कोण के प्रकार</h2>
+  <div class="grid" id="typePictures"></div>
+
+  <!-- 3. दैनिक जीवन -->
+  <h2>3. दैनिक जीवन में कोण</h2>
+  <div class="grid" id="dailyPictures"></div>
+
+  <div class="card">
+    <b>घर और स्कूल में कोण ढूँढो:</b>
+    <ul>
+      <li>खिड़की का पल्ला खोलो और सोचो कि दीवार से कितना कोण बना।</li>
+      <li>किताब को आधा खोलकर देखो। उसके दोनों भागों के बीच कौन सा कोण है?</li>
+      <li>कुर्सी पर बैठकर घुटने मोड़ो। घुटने पर बना कोण न्यून है या अधिक?</li>
+      <li>रोटी या पिज़्ज़ा के टुकड़े का कोण नापने की कोशिश करो।</li>
+    </ul>
+  </div>
+
+  <!-- 4. घड़ी से समझें (सिद्धांत) -->
+  <h2>4. घड़ी से कोण समझें</h2>
+  <div class="card">
+    घड़ी में 12 अंक होते हैं। पूरा चक्कर = 360°। इसलिए दो अंकों के बीच का कोण = 360° ÷ 12 = <b>30°</b>।<br>
+    मिनट की सूई 1 मिनट में <b>6°</b> घूमती है (360° ÷ 60 = 6°)।
+  </div>
+  <table>
+    <tr><th>समय</th><th>सूइयों के बीच कोण</th><th>कोण का प्रकार</th></tr>
+    <tr><td>1 बजे</td><td>30°</td><td>न्यून कोण</td></tr>
+    <tr><td>2 बजे</td><td>60°</td><td>न्यून कोण</td></tr>
+    <tr><td>3 बजे</td><td>90°</td><td>समकोण</td></tr>
+    <tr><td>4 बजे</td><td>120°</td><td>अधिक कोण</td></tr>
+    <tr><td>6 बजे</td><td>180°</td><td>सरल कोण</td></tr>
+  </table>
+
+  <!-- 5. इंटरैक्टिव घड़ी -->
+  <h2>5. इंटरैक्टिव घड़ी: सूइयों से कोण बनाओ</h2>
+  <p class="fun">मिनट की सूई (नारंगी गोले) को पकड़कर घुमाओ, या नीचे के स्लाइडर चलाओ!</p>
+  <div class="clock-wrap">
+    <div id="clockBox"></div>
+    <div class="clock-info">
+      <div class="big">समय: <span id="clockTime">3:00</span></div>
+      <div class="big">सूइयों के बीच कोण: <span id="clockAngle">90°</span></div>
+      <div class="big">प्रकार: <span id="clockType">समकोण</span></div>
+      <div class="calc" id="clockCalc"></div>
+      <div class="slider-row">घंटा: <input type="range" id="hourSlider" min="1" max="12" value="3" oninput="setFromSliders()" /></div>
+      <div class="slider-row">मिनट: <input type="range" id="minSlider" min="0" max="59" value="0" oninput="setFromSliders()" /></div>
+      <div>
+        <button class="secondary" onclick="setTime(1,0)">1 बजे</button>
+        <button class="secondary" onclick="setTime(2,0)">2 बजे</button>
+        <button class="secondary" onclick="setTime(3,0)">3 बजे</button>
+        <button class="secondary" onclick="setTime(4,0)">4 बजे</button>
+        <button class="secondary" onclick="setTime(6,0)">6 बजे</button>
+        <button class="secondary" onclick="setTime(9,0)">9 बजे</button>
+      </div>
+    </div>
+  </div>
+  <div class="challenge">
+    <p class="fun" id="challengeText">चुनौती: "नई चुनौती" बटन दबाओ!</p>
+    <button onclick="newChallenge()">नई चुनौती</button>
+    <button class="secondary" onclick="checkChallenge()">जाँचो</button>
+    <div class="result" id="challengeResult"></div>
+  </div>
+
+  <!-- 6. कोण को घुमाकर देखो -->
+  <h2>6. कोण को घुमाकर देखो</h2>
+  <p class="fun">Slider को खिसकाओ और कोण बदलते देखो!</p>
+  <div style="text-align:center;">
+    <input type="range" id="angleSlider" min="0" max="180" value="45" oninput="updateSlider(this.value)" style="width:70%;" />
+    <p>कोण: <span id="angleValue">45</span>° &nbsp;|&nbsp; प्रकार: <span id="angleType">न्यून कोण</span></p>
+  </div>
+  <div class="pic" id="sliderPicture" style="text-align:center;"></div>
+
+  <!-- 7. तालिका -->
+  <h2>7. कोण के प्रकार - तालिका</h2>
+  <table>
+    <tr><th>प्रकार</th><th>माप</th><th>उदाहरण</th></tr>
+    <tr><td>न्यून कोण</td><td>0° से बड़ा, 90° से छोटा</td><td>30°, 45°, 60°</td></tr>
+    <tr><td>समकोण</td><td>ठीक 90°</td><td>दीवार और फ़र्श का कोना</td></tr>
+    <tr><td>अधिक कोण</td><td>90° से बड़ा, 180° से छोटा</td><td>120°, 135°, 150°</td></tr>
+    <tr><td>सरल कोण</td><td>ठीक 180°</td><td>सीधी रेखा पर बना कोण</td></tr>
+    <tr><td>पूर्ण कोण</td><td>ठीक 360°</td><td>पूरा चक्कर</td></tr>
+  </table>
+
+  <div class="note">
+    <b>पहचानने का आसान तरीका:</b><br>
+    • "L" आकार का कोना = समकोण<br>
+    • उससे छोटी खुलावट = न्यून कोण<br>
+    • उससे बड़ी खुलावट = अधिक कोण<br>
+    • एक सीधी लाइन जैसा = सरल कोण
+  </div>
+
+  <!-- 8. चाँदा -->
+  <h2>8. कोण मापने का उपकरण: चाँदा (Protractor)</h2>
+  <div class="card">
+    <b>चाँदे से कोण नापने के कदम:</b>
+    <ol>
+      <li>चाँदे के केंद्र को कोण के <b>शीर्ष (Vertex)</b> पर रखो।</li>
+      <li>चाँदे की आधार रेखा को कोण की एक भुजा पर रखो।</li>
+      <li>जहाँ दूसरी भुजा चाँदे के किनारे को छूती है, वहाँ का अंक पढ़ो।</li>
+      <li>बाहरी या अंदरूनी स्केल में से वह अंक लो जो <b>0 से शुरू</b> होता है।</li>
+    </ol>
+  </div>
+
+  <!-- 9. अभ्यास -->
+  <h2>9. मज़ेदार अभ्यास: कोण पहचानो!</h2>
+  <div class="practice">
+    <p class="fun">नीचे दिए कोण को देखकर सही प्रकार चुनो।</p>
+    <div class="pic" id="practiceBox" style="display:inline-block;"></div>
+    <p>कोण: <span id="practiceAngleText">-</span></p>
+    <div>
+      <button class="secondary" onclick="answerPractice('न्यून कोण')">न्यून कोण</button>
+      <button class="secondary" onclick="answerPractice('समकोण')">समकोण</button>
+      <button class="secondary" onclick="answerPractice('अधिक कोण')">अधिक कोण</button>
+      <button class="secondary" onclick="answerPractice('सरल कोण')">सरल कोण</button>
+    </div>
+    <div class="result" id="practiceFeedback"></div>
+    <p class="score">स्कोर: <span id="practiceScore">0</span> / <span id="practiceTotal">0</span></p>
+    <button onclick="newPractice()">अगला कोण</button>
+  </div>
+
+  <!-- 10. MCQ -->
+  <h2>10. बहुविकल्पीय प्रश्न (MCQ Quiz)</h2>
+  <div class="quiz">
+    <div id="quizContainer"></div>
+    <button onclick="checkQuiz()">उत्तर जाँचें</button>
+    <div class="result" id="quizResult"></div>
+  </div>
+
+  <!-- 11. रिक्त स्थान -->
+  <h2>11. रिक्त स्थान भरो</h2>
+  <div class="exercise">
+    <div class="question">1. कोण को ______ में मापते हैं। <br>
+      <input type="text" id="fill1" placeholder="उत्तर लिखो" />
+      <button class="secondary" onclick="checkFill('fill1','डिग्री','fb1')">जाँचें</button>
+      <span id="fb1"></span>
+    </div>
+    <div class="question">2. समकोण = ______ डिग्री का कोण होता है। <br>
+      <input type="text" id="fill2" placeholder="उत्तर लिखो" />
+      <button class="secondary" onclick="checkFill('fill2','90','fb2')">जाँचें</button>
+      <span id="fb2"></span>
+    </div>
+    <div class="question">3. कोण मापने के उपकरण को ______ कहते हैं। <br>
+      <input type="text" id="fill3" placeholder="उत्तर लिखो" />
+      <button class="secondary" onclick="checkFill('fill3','चाँदा','fb3')">जाँचें</button>
+      <span id="fb3"></span>
+    </div>
+    <div class="question">4. सीधी रेखा पर बना कोण ______ कोण कहलाता है। <br>
+      <input type="text" id="fill4" placeholder="उत्तर लिखो" />
+      <button class="secondary" onclick="checkFill('fill4','सरल','fb4')">जाँचें</button>
+      <span id="fb4"></span>
+    </div>
+  </div>
+
+  <!-- 12. वर्कशीट -->
+  <h2>12. होमवर्क वर्कशीट</h2>
+  <div class="exercise">
+    <div class="question"><b>A. खाली जगह भरो:</b>
+      <ol>
+        <li>120° का कोण ______ कोण है।</li>
+        <li>10° का कोण ______ कोण है।</li>
+        <li>एक पूरा चक्कर = ______ डिग्री।</li>
+      </ol>
+    </div>
+    <div class="question"><b>B. घड़ी के समय से कोण बताओ:</b>
+      <ol>
+        <li>5 बजे सूइयों के बीच कोण = ______</li>
+        <li>9 बजे सूइयों के बीच कोण = ______</li>
+        <li>12 बजे सूइयों के बीच कोण = ______</li>
+      </ol>
+    </div>
+    <div class="question"><b>C. सही या गलत लिखो:</b>
+      <ol>
+        <li>समकोण 90° का होता है। (सही / गलत)</li>
+        <li>सरल कोण 90° का होता है। (सही / गलत)</li>
+        <li>अधिक कोण 90° से बड़ा होता है। (सही / गलत)</li>
+      </ol>
+    </div>
+    <div class="question"><b>D. कोण पहचानो:</b>
+      <ol>
+        <li>दीवार और फ़र्श का कोना कैसा कोण बनाता है?</li>
+        <li>एक सीधी पेंसिल को रखने पर बना कोण कैसा होता है?</li>
+      </ol>
+    </div>
+    <button class="secondary" onclick="toggleAnswers()">उत्तर देखें / छिपाएँ</button>
+    <div class="answer-box" id="worksheetAnswers">
+      <b>उत्तर:</b><br>
+      A: 1) अधिक कोण &nbsp; 2) न्यून कोण &nbsp; 3) 360°<br>
+      B: 1) 150° &nbsp; 2) 90° (छोटा कोण) &nbsp; 3) 0°<br>
+      C: 1) सही &nbsp; 2) गलत &nbsp; 3) सही<br>
+      D: 1) समकोण &nbsp; 2) सरल कोण
+    </div>
+  </div>
+
+  <!-- 13. गतिविधि -->
+  <h2>13. करके सीखो (Activity)</h2>
+  <div class="card">
+    <b>कागज़ से कोण बनाओ:</b>
+    <ol>
+      <li>एक कागज़ को मोड़ो। मोड़ से बने कोने को देखो। यह <b>समकोण</b> है।</li>
+      <li>कागज़ को थोड़ा और खोलो। अब बना कोण <b>न्यून</b> या <b>अधिक</b> कौन सा है?</li>
+      <li>कागज़ को पूरा सीधा खोलो। यह <b>सरल कोण</b> (180°) है।</li>
+      <li>अपने दोनों हाथों को खोलकर कोण बनाओ और बताओ कि यह कौन सा कोण है।</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>बच्चों के लिए मज़ेदार तरीके से सीखने हेतु</footer>
+
+<script>
+  // ---------- कोण का प्रकार ----------
+  function getType(angle) {
+    if (angle === 0) return "शून्य कोण";
+    if (angle === 90) return "समकोण";
+    if (angle === 180) return "सरल कोण";
+    if (angle === 360) return "पूर्ण कोण";
+    if (angle < 90) return "न्यून कोण";
+    return "अधिक कोण";
+  }
+
+  // ---------- कोण का SVG चित्र (ठीक किया हुआ) ----------
+  // शीर्ष (vertex) अब चित्र के बीच में है, ताकि 180° तक की भुजा कटे नहीं।
+  function angleSVG(deg, label) {
+    const W = 260, H = 220;
+    if (deg === 360) {
+      return `<svg viewBox="0 0 ${W} ${H}">
+        <circle cx="130" cy="105" r="75" fill="none" stroke="#1565c0" stroke-width="4"/>
+        <line x1="130" y1="105" x2="205" y2="105" stroke="#d84315" stroke-width="4"/>
+        <circle cx="130" cy="105" r="4" fill="#000"/>
+        <text x="130" y="210" text-anchor="middle" font-size="15" fill="#333">${label} (360°)</text>
+      </svg>`;
+    }
+    const cx = 130, cy = 165, L = 105, r = 35;
+    const rad = deg * Math.PI / 180;
+    const x3 = cx + L * Math.cos(rad), y3 = cy - L * Math.sin(rad);
+    const ax = cx + r, ay = cy;
+    const bx = cx + r * Math.cos(rad), by = cy - r * Math.sin(rad);
+    const tx = cx + (r + 22) * Math.cos(rad / 2), ty = cy - (r + 22) * Math.sin(rad / 2);
+    return `<svg viewBox="0 0 ${W} ${H}">
+      <line x1="${cx}" y1="${cy}" x2="${cx + L}" y2="${cy}" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+      <line x1="${cx}" y1="${cy}" x2="${x3}" y2="${y3}" stroke="#d84315" stroke-width="4" stroke-linecap="round"/>
+      <path d="M ${ax} ${ay} A ${r} ${r} 0 0 0 ${bx} ${by}" fill="none" stroke="#43a047" stroke-width="3"/>
+      <circle cx="${cx}" cy="${cy}" r="4" fill="#000"/>
+      <text x="${tx}" y="${ty}" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">${deg}°</text>
+      <text x="130" y="205" text-anchor="middle" font-size="15" fill="#333">${label}</text>
+    </svg>`;
+  }
+
+  // ---------- इंटरैक्टिव घड़ी ----------
+  let clockH = 3;   // 0 से 11
+  let clockM = 0;   // 0 से 59
+
+  function fmt(n) { return Number.isInteger(n) ? n : n.toFixed(1); }
+  function pt(r, deg) {
+    const a = deg * Math.PI / 180;
+    return [100 + r * Math.sin(a), 100 - r * Math.cos(a)];
+  }
+
+  function clockValues() {
+    const ma = clockM * 6;
+    const ha = clockH * 30 + clockM * 0.5;
+    let d = Math.abs(ma - ha);
+    if (d > 180) d = 360 - d;
+    return { ma, ha, d };
+  }
+
+  function drawClock() {
+    const { ma, ha, d } = clockValues();
+
+    // अंक और टिक
+    let marks = "";
+    for (let i = 1; i <= 12; i++) {
+      const [x, y] = pt(74, i * 30);
+      marks += `<text x="${x}" y="${y + 5}" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">${i}</text>`;
+    }
+    for (let i = 0; i < 60; i++) {
+      const [x1, y1] = pt(88, i * 6);
+      const [x2, y2] = pt(i % 5 === 0 ? 83 : 85, i * 6);
+      marks += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#666" stroke-width="${i % 5 === 0 ? 2 : 1}"/>`;
+    }
+
+    // दोनों सूइयों के बीच का छोटा कोण (चाप और रंगीन हिस्सा)
+    let wedge = "";
+    if (d > 0) {
+      let start = ha, end = ma;
+      if (((ma - ha + 360) % 360) > 180) { start = ma; end = ha; }
+      const R = 34;
+      const [sx, sy] = pt(R, start);
+      const [ex, ey] = pt(R, end);
+      wedge = `<path d="M 100 100 L ${sx} ${sy} A ${R} ${R} 0 0 1 ${ex} ${ey} Z" fill="rgba(76,175,80,0.35)" stroke="#2e7d32" stroke-width="2"/>`;
+    }
+
+    const [hx, hy] = pt(40, ha);
+    const [mx, my] = pt(62, ma);
+
+    document.getElementById("clockBox").innerHTML = `<svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="94" fill="#fff" stroke="#333" stroke-width="5"/>
+      ${marks}
+      ${wedge}
+      <line x1="100" y1="100" x2="${hx}" y2="${hy}" stroke="#1565c0" stroke-width="7" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="${mx}" y2="${my}" stroke="#d84315" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="${mx}" cy="${my}" r="8" fill="#ff9800" stroke="#e65100" stroke-width="2"/>
+      <circle cx="100" cy="100" r="5" fill="#000"/>
+    </svg>`;
+
+    const shownH = clockH === 0 ? 12 : clockH;
+    document.getElementById("clockTime").innerText = shownH + ":" + String(clockM).padStart(2, "0");
+    document.getElementById("clockAngle").innerText = fmt(d) + "°";
+    document.getElementById("clockType").innerText = getType(d);
+    document.getElementById("clockCalc").innerHTML =
+      `🔵 घंटे की सूई: ${fmt(ha)}° &nbsp;|&nbsp; 🔴 मिनट की सूई: ${fmt(ma)}°<br>` +
+      `अंतर = ${fmt(Math.abs(ma - ha))}°` + (Math.abs(ma - ha) > 180 ? ` → छोटा कोण = 360° − ${fmt(Math.abs(ma - ha))}° = <b>${fmt(d)}°</b>` : ` = <b>${fmt(d)}°</b>`);
+
+    document.getElementById("hourSlider").value = shownH;
+    document.getElementById("minSlider").value = clockM;
+  }
+
+  function setTime(h, m) {
+    clockH = h % 12;
+    clockM = m;
+    drawClock();
+  }
+
+  function setFromSliders() {
+    clockH = parseInt(document.getElementById("hourSlider").value) % 12;
+    clockM = parseInt(document.getElementById("minSlider").value);
+    drawClock();
+  }
+
+  // मिनट की सूई को खींचकर घुमाना
+  (function enableDrag() {
+    const box = document.getElementById("clockBox");
+    let dragging = false;
+
+    function moveTo(e) {
+      const svg = box.querySelector("svg");
+      const rect = svg.getBoundingClientRect();
+      const dx = e.clientX - (rect.left + rect.width / 2);
+      const dy = e.clientY - (rect.top + rect.height / 2);
+      let ang = Math.atan2(dx, -dy) * 180 / Math.PI;
+      if (ang < 0) ang += 360;
+      const newM = Math.round(ang / 6) % 60;
+      // मिनट 59 से 0 पर जाए तो घंटा बढ़े, उल्टा हो तो घटे
+      if (clockM > 45 && newM < 15) clockH = (clockH + 1) % 12;
+      else if (clockM < 15 && newM > 45) clockH = (clockH + 11) % 12;
+      clockM = newM;
+      drawClock();
+    }
+
+    box.addEventListener("pointerdown", e => {
+      dragging = true;
+      box.setPointerCapture(e.pointerId);
+      box.style.cursor = "grabbing";
+      moveTo(e);
+    });
+    box.addEventListener("pointermove", e => { if (dragging) moveTo(e); });
+    box.addEventListener("pointerup", () => { dragging = false; box.style.cursor = "grab"; });
+    box.addEventListener("pointercancel", () => { dragging = false; box.style.cursor = "grab"; });
+  })();
+
+  // घड़ी की चुनौती
+  const challengeTypes = ["न्यून कोण", "समकोण", "अधिक कोण", "सरल कोण"];
+  let currentChallenge = "";
+
+  function newChallenge() {
+    currentChallenge = challengeTypes[Math.floor(Math.random() * challengeTypes.length)];
+    document.getElementById("challengeText").innerText =
+      "चुनौती: घड़ी की सूइयाँ ऐसे घुमाओ कि उनके बीच " + currentChallenge + " बने।";
+    document.getElementById("challengeResult").innerText = "";
+  }
+
+  function checkChallenge() {
+    const res = document.getElementById("challengeResult");
+    if (!currentChallenge) {
+      res.style.color = "orange";
+      res.innerText = "पहले 'नई चुनौती' दबाओ।";
+      return;
+    }
+    const { d } = clockValues();
+    const type = getType(d);
+    if (type === currentChallenge) {
+      res.style.color = "green";
+      res.innerText = "शाबाश! 🎉 अभी कोण " + fmt(d) + "° है, यह " + type + " है।";
+    } else {
+      res.style.color = "red";
+      res.innerText = "अभी कोण " + fmt(d) + "° (" + type + ") है। फिर से कोशिश करो।";
+    }
+  }
+
+  // ---------- चित्रों वाले भाग ----------
+  function renderTypePictures() {
+    const types = [
+      { deg: 45, label: "न्यून कोण", desc: "90° से छोटा" },
+      { deg: 90, label: "समकोण", desc: "ठीक 90°, जैसे L आकार" },
+      { deg: 135, label: "अधिक कोण", desc: "90° से बड़ा, 180° से छोटा" },
+      { deg: 180, label: "सरल कोण", desc: "सीधी रेखा जैसा" }
+    ];
+    document.getElementById("typePictures").innerHTML = types.map(t =>
+      `<div class="box type-card"><div class="pic">${angleSVG(t.deg, t.label)}</div><b>${t.label}</b><br>${t.desc}</div>`
+    ).join("");
+  }
+
+  function renderDailyPictures() {
+    const items = [
+      { icon: "🚪", title: "दरवाज़ा", deg: 60, desc: "दरवाज़ा जितना खुलता है, उसके और दीवार के बीच का कोण बढ़ता है।" },
+      { icon: "✂️", title: "कैंची", deg: 30, desc: "कैंची के दोनों फल खोलने पर बीच में कोण बनता है।" },
+      { icon: "🪁", title: "पतंग", deg: 90, desc: "पतंग के दोनों डंडे अक्सर एक-दूसरे पर लगभग समकोण बनाते हैं।" },
+      { icon: "🪜", title: "सीढ़ी", deg: 70, desc: "सीढ़ी दीवार से टिकाने पर ज़मीन के साथ कोण बनाती है।" },
+      { icon: "🏠", title: "छत की ढलान", deg: 130, desc: "छत की दो ढलानों के बीच अधिक कोण बनता है।" },
+      { icon: "🍕", title: "पिज़्ज़ा का टुकड़ा", deg: 45, desc: "पिज़्ज़ा के एक टुकड़े के बीच का कोण छोटा (न्यून) होता है।" },
+      { icon: "🙆", title: "बाँहें फैलाना", deg: 180, desc: "बाँहें सीधी फैलाने पर दोनों बाँहों के बीच सरल कोण बनता है।" },
+      { icon: "🤸", title: "पैर फैलाना", deg: 150, desc: "पैर खोलकर बैठने पर बना कोण अधिक होता है।" }
+    ];
+    document.getElementById("dailyPictures").innerHTML = items.map(it =>
+      `<div class="box"><div style="font-size:30px;">${it.icon}</div><div class="pic">${angleSVG(it.deg, it.title)}</div><p class="daily">${it.desc}</p></div>`
+    ).join("");
+  }
+
+  // ---------- स्लाइडर ----------
+  function updateSlider(value) {
+    const angle = parseInt(value);
+    document.getElementById("angleValue").innerText = angle;
+    document.getElementById("angleType").innerText = getType(angle);
+    document.getElementById("sliderPicture").innerHTML = angleSVG(angle, getType(angle));
+  }
+
+  // ---------- अभ्यास ----------
+  const practiceAngles = [20, 45, 70, 90, 100, 135, 160, 180, 30, 120, 85, 150];
+  let practiceScore = 0;
+  let practiceTotal = 0;
+  let currentPracticeAngle = 0;
+  let answered = false;
+
+  function newPractice() {
+    currentPracticeAngle = practiceAngles[Math.floor(Math.random() * practiceAngles.length)];
+    answered = false;
+    document.getElementById("practiceBox").innerHTML = angleSVG(currentPracticeAngle, "कौन सा कोण?");
+    document.getElementById("practiceAngleText").innerText = "?";
+    document.getElementById("practiceFeedback").innerText = "";
+  }
+
+  function answerPractice(choice) {
+    if (answered) return;
+    answered = true;
+    practiceTotal++;
+    const correct = getType(currentPracticeAngle);
+    const fb = document.getElementById("practiceFeedback");
+    document.getElementById("practiceAngleText").innerText = currentPracticeAngle + "°";
+    if (choice === correct) {
+      practiceScore++;
+      fb.style.color = "green";
+      fb.innerText = "शाबाश! सही उत्तर है - " + correct;
+    } else {
+      fb.style.color = "red";
+      fb.innerText = "गलत। सही उत्तर है - " + correct;
+    }
+    document.getElementById("practiceScore").innerText = practiceScore;
+    document.getElementById("practiceTotal").innerText = practiceTotal;
+  }
+
+  // ---------- MCQ Quiz ----------
+  const questions = [
+    { q: "90° का कोण किस प्रकार का होता है?", options: ["न्यून कोण", "समकोण", "अधिक कोण", "सरल कोण"], answer: 1 },
+    { q: "सरल कोण कितने डिग्री का होता है?", options: ["90°", "45°", "180°", "360°"], answer: 2 },
+    { q: "45° का कोण कैसा होता है?", options: ["समकोण", "न्यून कोण", "अधिक कोण", "सरल कोण"], answer: 1 },
+    { q: "120° का कोण कैसा होता है?", options: ["न्यून कोण", "समकोण", "अधिक कोण", "पूर्ण कोण"], answer: 2 },
+    { q: "3 बजे घड़ी की सूइयों के बीच कितना कोण बनता है?", options: ["30°", "60°", "90°", "180°"], answer: 2 },
+    { q: "एक पूरे चक्कर का कोण कितना होता है?", options: ["180°", "270°", "360°", "90°"], answer: 2 },
+    { q: "दीवार और फ़र्श का कोना कैसा कोण है?", options: ["न्यून कोण", "समकोण", "अधिक कोण", "सरल कोण"], answer: 1 },
+    { q: "पिज़्ज़ा के एक छोटे टुकड़े का कोण आमतौर पर कैसा होता है?", options: ["न्यून कोण", "समकोण", "अधिक कोण", "सरल कोण"], answer: 0 },
+    { q: "मिनट की सूई 1 मिनट में कितने डिग्री घूमती है?", options: ["1°", "6°", "12°", "30°"], answer: 1 },
+    { q: "6 बजे घड़ी की सूइयों के बीच कौन सा कोण बनता है?", options: ["न्यून कोण", "समकोण", "अधिक कोण", "सरल कोण"], answer: 3 }
+  ];
+
+  function renderQuiz() {
+    let html = "";
+    questions.forEach((item, i) => {
+      html += `<div class="question"><b>${i + 1}. ${item.q}</b><br>`;
+      item.options.forEach((opt, j) => {
+        html += `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label><br>`;
+      });
+      html += `</div>`;
+    });
+    document.getElementById("quizContainer").innerHTML = html;
+  }
+
+  function checkQuiz() {
+    let score = 0;
+    questions.forEach((item, i) => {
+      const selected = document.querySelector(`input[name="q${i}"]:checked`);
+      if (selected && parseInt(selected.value) === item.answer) score++;
+    });
+    const result = document.getElementById("quizResult");
+    const good = score >= Math.ceil(questions.length * 0.7);
+    result.style.color = good ? "green" : "orange";
+    result.innerText = `आपका स्कोर: ${score} / ${questions.length}` +
+      (score === questions.length ? " - बहुत बढ़िया! 🎉" : good ? " - शाबाश!" : " - फिर से कोशिश करो।");
+  }
+
+  // ---------- रिक्त स्थान ----------
+  function checkFill(inputId, correctAnswer, feedbackId) {
+    const val = document.getElementById(inputId).value.trim();
+    const fb = document.getElementById(feedbackId);
+    if (val === correctAnswer) {
+      fb.style.color = "green";
+      fb.innerText = " ✔ सही!";
+    } else {
+      fb.style.color = "red";
+      fb.innerText = " ✘ सही उत्तर: " + correctAnswer;
+    }
+  }
+
+  // ---------- वर्कशीट उत्तर ----------
+  function toggleAnswers() {
+    const box = document.getElementById("worksheetAnswers");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+  }
+
+  // ---------- शुरू करें ----------
+  renderTypePictures();
+  renderDailyPictures();
+  drawClock();
+  updateSlider(45);
+  renderQuiz();
+  newPractice();
+</script>
+
+</body>
+</html>
